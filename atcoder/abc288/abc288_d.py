@@ -1,18 +1,13 @@
 # TODO edit this code, this code is for https://atcoder.jp/contests/practice/tasks/practice_1
 
 # param
-n, k = map(int, input().split())
-a = [_ for _ in map(int, input().split())]
-q = int(input())
-lr = []
 
-for i in range(q):
-    l, r = map(int, input().split())
-    lr.append(a[l - 1 : r - 1])
+a = int(input())
+b, c = map(int, input().split())
+s = input()
 
+# solve
+ans = a + b + c
 
 # answer
-for ary in lr:
-    print(ary)
-    ary.sort()
-    print(ary)
+print("{} {}".format(ans, s))
