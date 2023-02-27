@@ -1,20 +1,15 @@
-import itertools
+MOD = 998244353
 
+N = int(input())
+data = [tuple(map(int, input().split())) for _ in range(N)]
+dp = [[0, 0] for _ in range(N)]
+dp[0] = [1, 1]
+for i in range(1, N):
+    for pre in range(2):
+        for nxt in range(2):
+            if data[i - 1][pre] != data[i][nxt]:
+                dp[i][nxt] += dp[i - 1][pre]
+    dp[i][0] %= MOD
+    dp[i][1] %= MOD
 
-def check_duplicate(nums):
-    for i in range(len(nums) - 1):
-        if nums[i] == nums[i - 1]:
-            return True
-    return False
-
-
-# param
-n = int(input())
-ab = [list(map(int, input().split())) for _ in range(n)]
-
-dp = [[0 for _ in range(n)] for _ in range(n)]
-
-ans = 0
-
-
-print(num_dup)
+print((dp[N - 1][0] + dp[N - 1][1]) % MOD)
